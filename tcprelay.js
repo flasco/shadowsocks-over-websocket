@@ -3,7 +3,6 @@ const path = require('path');
 const log4js = require('log4js');
 const WebSocket = require('ws');
 const Encryptor = require('shadowsocks/lib/shadowsocks/encrypt').Encryptor;
-const WSErrorCode = require('ws/lib/ErrorCodes');
 
 const MAX_CONNECTIONS = 50000;
 
@@ -300,7 +299,7 @@ TCPRelay.prototype.handleConnectionByServer = function(connection) {
 		}
 	});
 	connection.on('close', function(code, reason) {
-		logger.info(`[${connectionId}]: close event[code = '${WSErrorCode[code]}'] of local connection has been triggered`);
+		logger.info(`[${connectionId}]: close event[code = '${code}'] of local connection has been triggered`);
 		connections[connectionId] = null;
 		targetConnection && targetConnection.destroy();
 	});
@@ -399,7 +398,7 @@ TCPRelay.prototype.handleConnectionByLocal = function(connection) {
 					connection.end();
 				});
 				serverConnection.on('close', function(code, reason) {
-					logger.info(`[${connectionId}]: close event[code = '${WSErrorCode[code]}'] of server connection has been triggered`);
+					logger.info(`[${connectionId}]: close event[code = '${code}'] of server connection has been triggered`);
 					stage = STAGE_DESTROYED;
 					connection.end();
 				});
