@@ -23,11 +23,11 @@
   },
   "homepage": "https://github.com/VincentChanX/shadowsocks-over-websocket#readme",
   "dependencies": {
-    "bufferutil": "^3.0.0",
-    "commander": "^2.9.0",
-    "log4js": "^1.1.1",
+    "bufferutil": "^4.0.0",
+    "commander": "^2.19.0",
+    "log4js": "^3.0.6",
     "shadowsocks": "^1.5.3",
     "throng": "^4.0.0",
-    "ws": "^2.2.3"
+    "ws": "^6.1.2"
   }
 }
